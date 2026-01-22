@@ -18,6 +18,7 @@
   <!-- INTRO: SOBRE -->
   <div id="intro" class="intro" aria-label="Sobre de invitación">
     <video id="introVideo" class="introVideo" src="assets/Sobre.mp4" playsinline preload="auto"></video>
+    <div class="introHint">Toca para abrir</div>
   </div>
 
   <!-- APP -->
@@ -36,7 +37,7 @@
 
       <nav class="menuNav" aria-label="Navegación">
         <button class="menuLink" type="button" data-page="inicio">Inicio</button>
-        <button class="menuLink" type="button" data-page="asistencia">Asistencia</button>
+        <button class="menuLink" type="button" data-page="asistencia</button>">Asistencia</button>
         <button class="menuLink" type="button" data-page="ceremonia">Ceremonia</button>
         <button class="menuLink" type="button" data-page="banquete">Banquete</button>
         <button class="menuLink" type="button" data-page="autobus">Autobús</button>
@@ -56,60 +57,70 @@
         </div>
       </section>
 
-      <!-- PÁGINAS (vacías de momento) -->
+      <!-- ASISTENCIA (FORM EMBEBIDO) -->
       <section class="page" data-page="asistencia">
         <div class="formWrap">
           <iframe
             class="gform"
-            src="https://docs.google.com/forms/d/e/1FAIpQLSfeHvcNCgCbFV3fCGgnvcn0bBKmm-f4SxqXnwa47AQiINEIfg/viewform?usp=header"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfeHvcNCgCbFV3fCGgnvcn0bBKmm-f4SxqXnwa47AQiINEIfg/viewform?embedded=true"
             frameborder="0"
             marginheight="0"
             marginwidth="0"
             loading="lazy"
-            allowfullscreen
+            title="Confirmación de asistencia"
           ></iframe>
         </div>
       </section>
+
+      <!-- CEREMONIA -->
       <section class="page" data-page="ceremonia">
-        <div class="ceremonyWrap">
-      
-          <!-- Carrusel -->
-          <div class="carousel" aria-label="Ceremonia">
-            <button class="carBtn carPrev" type="button" aria-label="Anterior">‹</button>
-      
-            <div class="carViewport">
-              <img class="carImg is-active" src="assets/Ceremonia.png" alt="Ceremonia">
-              <!-- Si quieres más fotos, duplica líneas así:
-              <img class="carImg" src="assets/Ceremonia2.png" alt="Ceremonia 2">
-              <img class="carImg" src="assets/Ceremonia3.png" alt="Ceremonia 3">
-              -->
-            </div>
-      
-            <button class="carBtn carNext" type="button" aria-label="Siguiente">›</button>
+        <div class="placePage">
+          <div class="placeMedia">
+            <img class="placeImg" src="assets/Ceremonia.png" alt="Ceremonia">
           </div>
-      
-          <!-- Dots -->
-          <div class="carDots" aria-hidden="true"></div>
-      
-          <!-- Título -->
-          <h2 class="ceremonyTitle">Parroquia San Lorenzo<br>Mártir</h2>
-      
-          <!-- Mapa -->
-          <a
-            class="mapLink"
-            href="https://www.google.com/maps/place/Parroquia+San+Lorenzo+M%C3%A1rtir/@37.3972877,-5.9966549,17z/data=!3m1!4b1!4m6!3m5!1s0xd126c092f59388d:0x5872d314a10f4389!8m2!3d37.3972877!4d-5.9966549!16s%2Fg%2F121b743b?entry=ttu"
-            target="_blank"
-            rel="noopener"
-            aria-label="Abrir ubicación en Google Maps"
-          >
-            <img class="mapIcon" src="assets/IconoMapa.png" alt="">
-            <div class="mapHint">(Clic)</div>
-          </a>
-      
+
+          <div class="placeInfo">
+            <h2 class="placeTitle">Parroquia San Lorenzo<br>Mártir</h2>
+
+            <a
+              class="mapLink"
+              href="https://www.google.com/maps/place/Parroquia+San+Lorenzo+M%C3%A1rtir/@37.3972877,-5.9966549,17z/data=!3m1!4b1!4m6!3m5!1s0xd126c092f59388d:0x5872d314a10f4389!8m2!3d37.3972877!4d-5.9966549!16s%2Fg%2F121b743b?entry=ttu"
+              target="_blank"
+              rel="noopener"
+              aria-label="Abrir ubicación en Google Maps"
+            >
+              <img class="mapIcon" src="assets/IconoMapa.png" alt="">
+              <div class="mapHint">(Clic)</div>
+            </a>
+          </div>
         </div>
       </section>
-      
-      <section class="page" data-page="banquete"><div class="blankPage">Banquete</div></section>
+
+      <!-- BANQUETE -->
+      <section class="page" data-page="banquete">
+        <div class="placePage">
+          <div class="placeMedia">
+            <img class="placeImg" src="assets/Banquete.png" alt="Banquete">
+          </div>
+
+          <div class="placeInfo">
+            <h2 class="placeTitle">Hacienda Los<br>Parrales</h2>
+
+            <a
+              class="mapLink"
+              href="https://maps.app.goo.gl/1y66pSW94DeNK1ky6"
+              target="_blank"
+              rel="noopener"
+              aria-label="Abrir ubicación en Google Maps"
+            >
+              <img class="mapIcon" src="assets/IconoMapa.png" alt="">
+              <div class="mapHint">(Clic)</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESTO (vacías por ahora) -->
       <section class="page" data-page="autobus"><div class="blankPage">Autobús</div></section>
       <section class="page" data-page="itinerario"><div class="blankPage">Itinerario</div></section>
       <section class="page" data-page="agradecimiento"><div class="blankPage">Agradecimiento</div></section>
@@ -134,7 +145,6 @@
     }
 
     function showIntro(){
-      // vuelve a enseñar el sobre y reinicia el vídeo
       app.classList.remove("show");
       app.setAttribute("aria-hidden", "true");
       intro.style.display = "block";
@@ -146,7 +156,6 @@
       }catch(e){}
     }
 
-    // Click en la intro -> reproduce una vez
     intro.addEventListener("click", async () => {
       if (started) return;
       started = true;
@@ -158,7 +167,6 @@
       }
     });
 
-    // Al terminar el vídeo -> muestra la portada
     introVideo.addEventListener("ended", () => {
       intro.classList.add("fadeOut");
       setTimeout(showApp, 520);
@@ -214,9 +222,3 @@
 
 </body>
 </html>
-
-
-
-
-
-

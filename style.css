@@ -12,7 +12,7 @@
 html, body{
   height:100%;
   width:100%;
-  overflow:hidden; /* SIN SCROLL */
+  overflow:hidden; /* SIN SCROLL en la web */
 }
 
 body{
@@ -43,6 +43,15 @@ body{
   display:block;
   background:#000;
 }
+.introHint{
+  position:absolute;
+  left:0; right:0;
+  bottom:28px;
+  text-align:center;
+  color:rgba(255,255,255,.85);
+  font-size:18px;
+  letter-spacing:.5px;
+}
 
 /* =========================
    APP + TOPBAR
@@ -57,10 +66,8 @@ body{
   display:flex;
   align-items:center;
   padding:0 14px;
-  background:rgba(255,255,255,.95);
+  background:rgba(255,255,255,.92);
   z-index:10;
-  border-bottom:none;
-  box-shadow:none;
 }
 
 .iconBtn{
@@ -72,7 +79,7 @@ body{
 }
 
 .logoText{
-  font-size:18px;
+  font-size:20px;
   margin-left:8px;
   color:var(--text-main);
   opacity:.9;
@@ -82,10 +89,10 @@ body{
   margin-left:auto;
   background:transparent;
   border:0;
-  font-size:18px;
+  font-size:20px;
   cursor:pointer;
   color:var(--text-main);
-  opacity:.65;
+  opacity:.55;
 }
 .replayBtn:hover{ opacity:1; }
 
@@ -112,33 +119,112 @@ body{
 .page.is-visible{ opacity:1; transform:translateY(0); }
 
 /* =========================
-   INICIO – PORTADA COMPLETA (SIN RECORTAR)
+   INICIO (PORTADA)
 ========================= */
 .homeFit{
   height:100%;
-  max-width:720px;      /* mantiene estética “invitación” */
-  margin:0 auto;
-  padding:2px 6px 4px;  /* ✅ menos aire (arriba/lados/abajo) */
   display:flex;
-  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:6px;              /* margen mínimo */
 }
 
 .invImageWrap{
-  height:100%;
   width:100%;
+  height:100%;
+  max-width:520px;
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-/* ✅ clave: escala completa sin deformar ni “desaparecer” */
 .invImage{
-  max-width:100%;
-  max-height:100%;
-  width:auto;
-  height:auto;
-  object-fit:contain;
+  width:100%;
+  height:100%;
+  object-fit:contain;       /* NO recorta */
   display:block;
+}
+
+/* =========================
+   ASISTENCIA (FORM)
+   - El body no hace scroll, pero el iframe puede “mover” dentro.
+========================= */
+.formWrap{
+  height:100%;
+  width:100%;
+}
+.gform{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* =========================
+   CEREMONIA / BANQUETE
+   - “vertical”: ocupa alto completo con layout tipo tarjeta
+   - imagen con opacidad 70%
+========================= */
+.placePage{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  padding:12px 12px 18px;
+  max-width:520px;
+  margin:0 auto;
+  gap:10px;
+}
+
+.placeMedia{
+  flex:1 1 auto;
+  min-height:0;
+  border-radius:14px;
+  overflow:hidden;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.placeImg{
+  width:100%;
+  height:100%;
+  object-fit:cover;     /* llena la pantalla (sin blanco) */
+  opacity:.7;           /* 70% */
+  display:block;
+}
+
+.placeInfo{
+  flex:0 0 auto;
+  text-align:center;
+}
+
+.placeTitle{
+  font-weight:400;
+  color:var(--text-main);
+  font-size:clamp(28px, 6vw, 44px);
+  line-height:1.05;
+  margin-bottom:8px;
+}
+
+.mapLink{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+}
+
+.mapIcon{
+  width:52px;
+  height:auto;
+  display:block;
+  opacity:.9;
+}
+
+.mapHint{
+  font-size:18px;
+  color:var(--text-soft);
 }
 
 /* =========================
@@ -183,7 +269,7 @@ body{
   padding:0;
   cursor:pointer;
   font-family:"Parisienne", cursive;
-  font-size:30px;
+  font-size:34px;
   color:rgba(255,255,255,.95);
   text-align:left;
 }
@@ -192,129 +278,10 @@ body{
    PÁGINAS VACÍAS
 ========================= */
 .blankPage{
-  padding:24px 18px;
-  font-size:32px;
-  color:var(--text-main);
-}
-
-/* Asistencia: permitir scroll SOLO aquí */
-.page[data-page="asistencia"]{
-  overflow:auto !important;
-  -webkit-overflow-scrolling: touch;
-}
-
-.gform{
-  width:100%;
-  height: calc(100vh - 56px);
-  height: calc(100svh - 56px);
-  border:0;
-  display:block;
-}
-
-/* =========================
-   CEREMONIA (CAROUSEL + MAP)
-========================= */
-.page[data-page="ceremonia"]{
-  overflow:auto !important;
-  -webkit-overflow-scrolling: touch;
-}
-
-.ceremonyWrap{
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 14px 14px 26px;
-  text-align: center;
-}
-
-/* Carousel */
-.carousel{
-  position: relative;
-  width: 100%;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.carViewport{
-  width: 100%;
-  aspect-ratio: 4 / 3;        /* parecido a la captura */
-  background: #f5f5f5;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.carImg{
-  width:100%;
   height:100%;
-  object-fit: cover;
-  display:none;
-}
-.carImg.is-active{ display:block; }
-
-/* Flechas */
-.carBtn{
-  position:absolute;
-  top:50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  border:0;
-  border-radius: 999px;
-  background: rgba(0,0,0,.25);
-  color:#fff;
-  font-size: 28px;
-  line-height: 44px;
-  cursor:pointer;
-  z-index:2;
-}
-.carPrev{ left: 10px; }
-.carNext{ right: 10px; }
-.carBtn:active{ transform: translateY(-50%) scale(.98); }
-
-/* Dots */
-.carDots{
   display:flex;
-  justify-content:center;
-  gap:8px;
-  padding: 10px 0 14px;
-}
-.carDot{
-  width: 8px;
-  height: 8px;
-  border-radius: 999px;
-  background: rgba(0,0,0,.18);
-}
-.carDot.is-active{
-  background: rgba(0,0,0,.55);
-}
-
-/* Título */
-.ceremonyTitle{
-  font-family:"Parisienne", cursive;
-  font-size: clamp(26px, 6vw, 42px);
-  line-height: 1.08;
-  font-weight: 400;
-  color: rgba(0,0,0,.72);
-  margin: 14px 0 12px;
-}
-
-/* Mapa clic */
-.mapLink{
-  display:inline-flex;
-  flex-direction:column;
   align-items:center;
-  gap:6px;
-  text-decoration:none;
-  color: rgba(0,0,0,.55);
-}
-
-.mapIcon{
-  width: 46px;
-  height: 46px;
-  opacity: .9;
-}
-
-.mapHint{
-  font-family:"Parisienne", cursive;
-  font-size: 20px;
+  justify-content:center;
+  font-size:42px;
+  color:var(--text-main);
 }
