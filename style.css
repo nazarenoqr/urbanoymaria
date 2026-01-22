@@ -257,6 +257,60 @@ body{
     padding-bottom: 6px !important;
   }
   
+  /* ===== SIN SCROLL + TEXTO MÁS “EN CASCADA” (PEGAR AL FINAL) ===== */
+
+/* 1) Evitar scroll global */
+html, body{
+    height: 100%;
+    overflow: hidden !important;
+  }
+  
+  /* 2) Quitar cualquier reborde del topbar */
+  .topbar{
+    border-bottom: none !important;
+    box-shadow: none !important;
+  }
+  
+  /* 3) Home: encajar todo exacto */
+  .page[data-page="inicio"]{
+    height: calc(100vh - 56px) !important;
+    overflow: hidden !important;
+  }
+  
+  /* 4) Reparto: que NO quede mega hueco abajo */
+  .invitationFit{
+    height: 100% !important;
+    padding-top: 18px !important;
+    padding-bottom: 14px !important;
+    justify-content: space-between !important; /* vuelve a “repartir” bien */
+  }
+  
+  /* 5) Texto: más elegante, más compacto, y sin “D.m” suelto */
+  .body{
+    line-height: 1.18 !important;
+    margin-bottom: 6px !important;
+  }
+  
+  /* Elimina el salto feo antes/después de (D.m) */
+  .body .dm{
+    display: inline !important;
+    white-space: nowrap !important;
+    opacity: .85;
+  }
+  
+  /* 6) Imagen un pelín más grande para ocupar el espacio sin scroll */
+  .sanlorenzoFit{
+    width: 92% !important;
+    max-height: 46vh !important;
+  }
+  
+  /* 7) Parte inferior más pegada (menos aire muerto) */
+  .confirm{
+    margin: 4px 0 2px !important;
+  }
+  .footer{
+    padding-bottom: 2px !important;
+  }
   
   
   
