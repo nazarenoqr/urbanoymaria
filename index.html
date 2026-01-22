@@ -16,13 +16,7 @@
 
   <!-- INTRO: MP4 fullscreen -->
   <div id="intro" class="intro" aria-label="Invitación">
-    <video
-      id="introVideo"
-      class="introVideo"
-      src="assets/Sobre.mp4"
-      playsinline
-      preload="auto">
-    </video>
+    <video id="introVideo" class="introVideo" src="assets/Sobre.mp4" playsinline preload="auto"></video>
   </div>
 
   <!-- APP -->
@@ -41,85 +35,85 @@
       <div class="rightSpacer" aria-hidden="true"></div>
     </header>
 
-    <!-- MENÚ -->
+    <!-- MENÚ OVERLAY: SOLO LETRAS -->
     <div id="menuOverlay" class="menuOverlay" aria-hidden="true">
-      <div class="menuPanel" role="dialog" aria-label="Menú">
-        <button id="closeBtn" class="closeBtn" aria-label="Cerrar menú">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </button>
+      <button id="closeBtn" class="closeBtn" aria-label="Cerrar menú">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
 
-        <nav class="menuNav">
-          <button class="menuItem" data-page="inicio">Inicio</button>
-          <button class="menuItem" data-page="asistencia">Asistencia</button>
-          <button class="menuItem" data-page="ceremonia">Ceremonia</button>
-          <button class="menuItem" data-page="banquete">Banquete</button>
-          <button class="menuItem" data-page="autobus">Autobús</button>
-          <button class="menuItem" data-page="itinerario">Itinerario</button>
-          <button class="menuItem" data-page="agradecimiento">Agradecimiento</button>
-        </nav>
-      </div>
+      <nav class="menuNav" aria-label="Menú">
+        <button class="menuLink" data-page="inicio">Inicio</button>
+        <button class="menuLink" data-page="asistencia">Asistencia</button>
+        <button class="menuLink" data-page="ceremonia">Ceremonia</button>
+        <button class="menuLink" data-page="banquete">Banquete</button>
+        <button class="menuLink" data-page="autobus">Autobús</button>
+        <button class="menuLink" data-page="itinerario">Itinerario</button>
+        <button class="menuLink" data-page="agradecimiento">Agradecimiento</button>
+      </nav>
     </div>
 
-    <!-- PÁGINAS -->
+    <!-- PÁGINAS (NUEVAS “SECCIONES” SIN SCROLL) -->
     <main class="pages">
 
-      <!-- INICIO: SOLO LA IMAGEN -->
-      <section class="page is-active" data-page="inicio">
+      <!-- INICIO: SOLO INVITACIÓN + SAN LORENZO -->
+      <section class="page is-active is-visible" data-page="inicio">
         <img class="inviteImg" src="assets/Invitacion.png" alt="Invitación" />
         <img class="sanlorenzoImg" src="assets/SanLorenzo.png" alt="San Lorenzo, Sevilla" />
       </section>
 
-      <!-- RESTO DE PÁGINAS (placeholders) -->
+      <!-- PÁGINAS NUEVAS -->
       <section class="page" data-page="asistencia">
         <div class="pageInner">
           <h1 class="pageTitle">Asistencia</h1>
-          <p class="pageText">Aquí irá tu confirmación (formulario/enlace/WhatsApp).</p>
+          <p class="pageText">Contenido de confirmación aquí.</p>
         </div>
       </section>
 
       <section class="page" data-page="ceremonia">
         <div class="pageInner">
           <h1 class="pageTitle">Ceremonia</h1>
-          <p class="pageText">Detalles, ubicación, hora, mapa…</p>
+          <p class="pageText">Contenido de ceremonia aquí.</p>
         </div>
       </section>
 
       <section class="page" data-page="banquete">
         <div class="pageInner">
           <h1 class="pageTitle">Banquete</h1>
-          <p class="pageText">Hacienda los Parrales, horarios, mapa…</p>
+          <p class="pageText">Contenido de banquete aquí.</p>
         </div>
       </section>
 
       <section class="page" data-page="autobus">
         <div class="pageInner">
           <h1 class="pageTitle">Autobús</h1>
-          <p class="pageText">Puntos de salida, horarios, confirmación…</p>
+          <p class="pageText">Contenido de autobús aquí.</p>
         </div>
       </section>
 
       <section class="page" data-page="itinerario">
         <div class="pageInner">
           <h1 class="pageTitle">Itinerario</h1>
-          <p class="pageText">Timeline del día.</p>
+          <p class="pageText">Contenido de itinerario aquí.</p>
         </div>
       </section>
 
       <section class="page" data-page="agradecimiento">
         <div class="pageInner">
           <h1 class="pageTitle">Agradecimiento</h1>
-          <p class="pageText">Texto final bonito.</p>
+          <p class="pageText">Contenido de agradecimiento aquí.</p>
         </div>
       </section>
 
     </main>
+
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

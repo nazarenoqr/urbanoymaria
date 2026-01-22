@@ -6,12 +6,12 @@ const menuBtn = document.getElementById("menuBtn");
 const closeBtn = document.getElementById("closeBtn");
 const menuOverlay = document.getElementById("menuOverlay");
 
-const pageEls = Array.from(document.querySelectorAll(".page"));
+const pages = Array.from(document.querySelectorAll(".page"));
 
-let activePage = "inicio";
 let started = false;
+let active = "inicio";
 
-/* Intro -> reproducir una vez */
+/* Intro -> play una vez */
 intro.addEventListener("click", async () => {
   if (started) return;
   started = true;
@@ -24,7 +24,6 @@ intro.addEventListener("click", async () => {
   }
 });
 
-/* Termina vídeo -> mostrar app */
 video.addEventListener("ended", () => {
   intro.classList.add("fadeOut");
   setTimeout(showApp, 620);
@@ -34,61 +33,58 @@ function showApp(){
   intro.style.display = "none";
   app.classList.add("show");
   app.setAttribute("aria-hidden", "false");
-  window.scrollTo(0, 0);
-
-  const first = getPageEl(activePage);
+  // asegura animación inicial
+  const first = getPage("inicio");
   first.classList.add("is-active");
   requestAnimationFrame(() => first.classList.add("is-visible"));
 }
 
-/* Menú */
-menuBtn.addEventListener("click", openMenu);
-closeBtn.addEventListener("click", closeMenu);
-
-menuOverlay.addEventListener("click", (e) => {
-  if (e.target === menuOverlay) closeMenu();
-});
-
-function openMenu(){
+/* Menú open/close */
+menuBtn.addEventListener("click", () => {
   menuOverlay.classList.add("show");
   menuOverlay.setAttribute("aria-hidden", "false");
-}
+});
+
 function closeMenu(){
   menuOverlay.classList.remove("show");
   menuOverlay.setAttribute("aria-hidden", "true");
 }
 
-/* Navegación por páginas (fade) */
-document.querySelectorAll(".menuItem").forEach(btn => {
+closeBtn.addEventListener("click", closeMenu);
+menuOverlay.addEventListener("click", (e) => {
+  if (e.target === menuOverlay) closeMenu();
+});
+
+/* Navegación a “sección nueva” (página nueva) */
+document.querySelectorAll(".menuLink").forEach(btn => {
   btn.addEventListener("click", () => {
-    const target = btn.getAttribute("data-page");
+    const target = btn.dataset.page;
     closeMenu();
-    navigateTo(target);
+    setActive(target);
   });
 });
 
-function getPageEl(name){
-  return pageEls.find(p => p.getAttribute("data-page") === name);
+function getPage(name){
+  return pages.find(p => p.dataset.page === name);
 }
 
-function navigateTo(target){
-  if (!target || target === activePage) return;
+function setActive(target){
+  if (!target || target === active) return;
 
-  const current = getPageEl(activePage);
-  const next = getPageEl(target);
+  const current = getPage(active);
+  const next = getPage(target);
 
+  // fade out actual
   current.classList.remove("is-visible");
 
   setTimeout(() => {
     current.classList.remove("is-active");
 
     next.classList.add("is-active");
-    requestAnimationFrame(() => {
-      next.classList.add("is-visible");
-      window.scrollTo(0, 0);
-    });
+    requestAnimationFrame(() => next.classList.add("is-visible"));
 
-    activePage = target;
+    active = target;
+    window.scrollTo(0, 0);
   }, 430);
 }
 
