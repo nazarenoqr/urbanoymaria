@@ -90,5 +90,52 @@ replayBtn.addEventListener("click", () => {
   showIntro();
 });
 
+// ========= CEREMONIA: CAROUSEL =========
+(function(){
+    const cerPage = document.querySelector('.page[data-page="ceremonia"]');
+    if (!cerPage) return;
+  
+    const imgs = Array.from(cerPage.querySelectorAll(".carImg"));
+    const prev = cerPage.querySelector(".carPrev");
+    const next = cerPage.querySelector(".carNext");
+    const dotsWrap = cerPage.querySelector(".carDots");
+  
+    if (!imgs.length) return;
+  
+    let idx = 0;
+  
+    // Dots
+    dotsWrap.innerHTML = "";
+    const dots = imgs.map((_, i) => {
+      const d = document.createElement("div");
+      d.className = "carDot" + (i === 0 ? " is-active" : "");
+      d.addEventListener("click", () => set(i));
+      dotsWrap.appendChild(d);
+      return d;
+    });
+  
+    function set(i){
+      imgs[idx].classList.remove("is-active");
+      dots[idx].classList.remove("is-active");
+      idx = (i + imgs.length) % imgs.length;
+      imgs[idx].classList.add("is-active");
+      dots[idx].classList.add("is-active");
+    }
+  
+    function go(step){ set(idx + step); }
+  
+    // Si solo hay 1 imagen, ocultamos flechas y dots “sobran”
+    if (imgs.length === 1){
+      prev.style.display = "none";
+      next.style.display = "none";
+      dotsWrap.style.display = "none";
+      return;
+    }
+  
+    prev.addEventListener("click", () => go(-1));
+    next.addEventListener("click", () => go(1));
+  })();
+  
+
 
 
