@@ -1,3 +1,4 @@
+<!-- index.html (COMPLETO) — COPIA Y PEGA ENTERO -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,19 +11,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+  <!-- IMPORTANTE: este nombre debe ser EXACTO -->
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
-  <!-- ✅ INTRO SOBRE MP4 (FIJO SÍ O SÍ) -->
+  <!-- INTRO: SOBRE (MP4) -->
   <div id="intro" class="intro" aria-label="Sobre de invitación">
-    <video
-      id="introVideo"
-      class="introVideo"
-      src="assets/Sobre.mp4"
-      playsinline
-      preload="auto">
-    </video>
+    <video id="introVideo" class="introVideo" src="./assets/Sobre.mp4" playsinline preload="auto"></video>
   </div>
 
   <!-- APP -->
@@ -35,23 +31,24 @@
       <div class="rightSpacer"></div>
     </header>
 
-    <!-- MENÚ (solo letras blancas) -->
+    <!-- MENÚ OVERLAY (SOLO SE VE AL ABRIR) -->
     <div id="menuOverlay" class="menuOverlay" aria-hidden="true">
       <button id="closeBtn" class="closeBtn" aria-label="Cerrar">✕</button>
-      <nav class="menuNav">
-        <button class="menuLink" data-page="inicio">Inicio</button>
-        <button class="menuLink" data-page="asistencia">Asistencia</button>
-        <button class="menuLink" data-page="ceremonia">Ceremonia</button>
-        <button class="menuLink" data-page="banquete">Banquete</button>
-        <button class="menuLink" data-page="autobus">Autobús</button>
-        <button class="menuLink" data-page="itinerario">Itinerario</button>
-        <button class="menuLink" data-page="agradecimiento">Agradecimiento</button>
+
+      <nav class="menuNav" aria-label="Navegación">
+        <button class="menuLink" type="button" data-page="inicio">Inicio</button>
+        <button class="menuLink" type="button" data-page="asistencia">Asistencia</button>
+        <button class="menuLink" type="button" data-page="ceremonia">Ceremonia</button>
+        <button class="menuLink" type="button" data-page="banquete">Banquete</button>
+        <button class="menuLink" type="button" data-page="autobus">Autobús</button>
+        <button class="menuLink" type="button" data-page="itinerario">Itinerario</button>
+        <button class="menuLink" type="button" data-page="agradecimiento">Agradecimiento</button>
       </nav>
     </div>
 
     <main class="pages">
 
-      <!-- INICIO: TODO EN UNA PANTALLA, SIN SCROLL -->
+      <!-- INICIO (SIN SCROLL, TODO EN 1 PANTALLA) -->
       <section class="page is-active is-visible" data-page="inicio">
         <div class="invitationFit">
 
@@ -72,58 +69,44 @@
             </p>
           </div>
 
-          <!-- IMAGEN EN MEDIO -->
           <div class="fitImageWrap">
-            <img class="sanlorenzoFit" src="assets/SanLorenzo.png" alt="San Lorenzo, Sevilla" />
+            <img class="sanlorenzoFit" src="./assets/SanLorenzo.png" alt="Parroquia San Lorenzo Mártir, Sevilla" />
           </div>
 
           <div class="fitBottom">
             <p class="confirm">Se ruega Confirmación</p>
 
             <div class="footer">
-              <div class="left">
-                Urbano<br>
-                668&nbsp;556&nbsp;740
-              </div>
-
-              <div class="center">
-                Sevilla, 2026
-              </div>
-
-              <div class="right">
-                María<br>
-                662&nbsp;393&nbsp;762
-              </div>
+              <div class="left">Urbano<br>668&nbsp;556&nbsp;740</div>
+              <div class="center">Sevilla, 2026</div>
+              <div class="right">María<br>662&nbsp;393&nbsp;762</div>
             </div>
           </div>
 
         </div>
       </section>
 
-      <!-- PÁGINAS NUEVAS (rellenar luego) -->
-      <section class="page" data-page="asistencia"></section>
-      <section class="page" data-page="ceremonia"></section>
-      <section class="page" data-page="banquete"></section>
-      <section class="page" data-page="autobus"></section>
-      <section class="page" data-page="itinerario"></section>
-      <section class="page" data-page="agradecimiento"></section>
+      <!-- PÁGINAS (VACÍAS POR AHORA) -->
+      <section class="page" data-page="asistencia"><div class="blankPage">Asistencia</div></section>
+      <section class="page" data-page="ceremonia"><div class="blankPage">Ceremonia</div></section>
+      <section class="page" data-page="banquete"><div class="blankPage">Banquete</div></section>
+      <section class="page" data-page="autobus"><div class="blankPage">Autobús</div></section>
+      <section class="page" data-page="itinerario"><div class="blankPage">Itinerario</div></section>
+      <section class="page" data-page="agradecimiento"><div class="blankPage">Agradecimiento</div></section>
 
     </main>
-
   </div>
 
   <script>
-    // ✅ INTRO: el sobre aparece SIEMPRE. Reproduce al tocar. Al terminar, entra a la invitación.
+    // ===== INTRO SOBRE =====
     const intro = document.getElementById("intro");
     const introVideo = document.getElementById("introVideo");
     const app = document.getElementById("app");
-
     let started = false;
 
     intro.addEventListener("click", async () => {
       if (started) return;
       started = true;
-
       try {
         introVideo.currentTime = 0;
         await introVideo.play();
@@ -144,24 +127,28 @@
       window.scrollTo(0,0);
     }
 
-    // Menú overlay
+    // ===== MENÚ OVERLAY =====
     const menuBtn = document.getElementById("menuBtn");
     const closeBtn = document.getElementById("closeBtn");
     const menuOverlay = document.getElementById("menuOverlay");
 
     menuBtn.addEventListener("click", () => menuOverlay.classList.add("show"));
     closeBtn.addEventListener("click", () => menuOverlay.classList.remove("show"));
-    menuOverlay.addEventListener("click", (e) => { if (e.target === menuOverlay) menuOverlay.classList.remove("show"); });
+    menuOverlay.addEventListener("click", (e) => {
+      if (e.target === menuOverlay) menuOverlay.classList.remove("show");
+    });
 
-    // Navegación a páginas nuevas (sin scroll)
+    // ===== NAVEGACIÓN PÁGINAS (SIN LISTAS EN HOME) =====
     const pages = Array.from(document.querySelectorAll(".page"));
     let active = "inicio";
+
     function getPage(name){ return pages.find(p => p.dataset.page === name); }
 
     function setActive(target){
       if (!target || target === active) return;
       const current = getPage(active);
       const next = getPage(target);
+      if (!current || !next) return;
 
       current.classList.remove("is-visible");
       setTimeout(() => {
@@ -180,7 +167,6 @@
       });
     });
   </script>
-
 </body>
 </html>
 

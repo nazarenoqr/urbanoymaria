@@ -1,61 +1,219 @@
-/* Pega ESTO al FINAL de tu style.css (sobrescribe lo anterior) */
+/* style.css (COMPLETO) — COPIA Y PEGA ENTERO */
+*{ box-sizing:border-box; margin:0; padding:0; }
 
-/* TOPBAR: logo más pequeño y más suave */
+:root{
+  --overlay: rgba(0,0,0,.35);
+  --text-soft: rgba(0,0,0,.55);
+  --text-main: rgba(0,0,0,.72);
+}
+
+body{
+  background:#fff;
+  font-family:"Parisienne", cursive;
+  color:var(--text-soft);
+}
+
+/* ===== INTRO SOBRE ===== */
+.intro{
+  position:fixed;
+  inset:0;
+  background:#000;
+  z-index:9999;
+  opacity:1;
+  transition:opacity 600ms ease;
+}
+.intro.fadeOut{
+  opacity:0;
+  pointer-events:none;
+}
+.introVideo{
+  width:100vw;
+  height:100vh;
+  object-fit:cover;
+  display:block;
+  background:#000;
+}
+
+/* ===== APP ===== */
+.app{ display:none; }
+.app.show{ display:block; }
+
+/* ===== TOPBAR ===== */
+.topbar{
+  position:fixed;
+  top:0; left:0; right:0;
+  height:56px;
+  display:flex;
+  align-items:center;
+  padding:0 14px;
+  background:rgba(255,255,255,.95);
+  border-bottom:1px solid rgba(0,0,0,.05);
+  z-index:10;
+}
+
+.iconBtn{
+  background:transparent;
+  border:0;
+  font-size:22px;
+  cursor:pointer;
+  color:var(--text-main);
+}
+
 .logoText{
-    font-size: 20px !important;
-    margin-left: 8px !important;
-    color: rgba(0,0,0,.70) !important;
-  }
-  
-  /* INVITACIÓN: menos separación (más compacto) */
-  .invitationFit{
-    padding: 10px 16px 10px !important;
-    gap: 6px !important;
-  }
-  
-  /* Urbano y María: menos negro, más fino */
-  .names{
-    font-size: clamp(26px, 5.6vw, 38px) !important;
-    color: rgba(0,0,0,.72) !important;
-    margin: 2px 0 4px !important;
-  }
-  
-  .subtitle{
-    font-size: clamp(15px, 3.4vw, 20px) !important;
-    color: rgba(0,0,0,.55) !important;
-    margin-bottom: 8px !important;
-  }
-  
-  /* Texto: más compacto */
-  .body{
-    font-size: clamp(13px, 3.3vw, 18px) !important;
-    line-height: 1.25 !important;
-    color: rgba(0,0,0,.55) !important;
-    margin-bottom: 8px !important;
-  }
-  
-  /* Imagen: ocupar más y reducir espacios */
-  .fitImageWrap{
-    padding: 4px 0 !important;
-  }
-  .sanlorenzoFit{
-    width: 92% !important;          /* un poco de “marco” como invitación */
-    max-height: 100% !important;
-  }
-  
-  /* Confirmación y pie: más pegado */
-  .confirm{
-    font-size: clamp(14px, 3.2vw, 18px) !important;
-    color: rgba(0,0,0,.55) !important;
-    margin-bottom: 6px !important;
-  }
-  
-  .footer{
-    font-size: clamp(12px, 3.0vw, 16px) !important;
-    color: rgba(0,0,0,.55) !important;
-    padding-bottom: 0 !important;
-  }
-  
+  font-size:20px;
+  margin-left:8px;
+  color:var(--text-main);
+}
+
+.rightSpacer{ margin-left:auto; }
+
+/* ===== PAGES ===== */
+.pages{ padding-top:56px; }
+
+.page{
+  display:none;
+  opacity:0;
+  transform:translateY(4px);
+  transition:opacity 220ms ease, transform 220ms ease;
+  background:#fff;
+}
+
+.page.is-active{ display:block; }
+.page.is-visible{ opacity:1; transform:translateY(0); }
+
+/* ===== HOME: 1 pantalla, sin scroll ===== */
+.page[data-page="inicio"]{
+  height:calc(100vh - 56px);
+  overflow:hidden;
+}
+
+/* Encaja todo */
+.invitationFit{
+  height:100%;
+  max-width:820px;
+  margin:0 auto;
+  padding:10px 16px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  text-align:center;
+}
+
+.names{
+  font-size:clamp(26px, 5.6vw, 38px);
+  line-height:1.05;
+  margin-bottom:4px;
+  color:var(--text-main);
+}
+
+.subtitle{
+  font-size:clamp(15px, 3.4vw, 20px);
+  margin-bottom:8px;
+  color:var(--text-soft);
+}
+
+.body{
+  font-size:clamp(13px, 3.3vw, 18px);
+  line-height:1.25;
+  margin-bottom:8px;
+  color:var(--text-soft);
+}
+
+.em{
+  color:var(--text-main);
+  font-weight:400;
+}
+
+.fitImageWrap{
+  flex:1;
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px 0;
+}
+
+.sanlorenzoFit{
+  width:92%;
+  max-height:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+}
+
+.confirm{
+  font-size:clamp(14px, 3.2vw, 18px);
+  margin-bottom:6px;
+  color:var(--text-soft);
+}
+
+.footer{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:10px;
+  align-items:end;
+  font-size:clamp(12px, 3vw, 16px);
+  line-height:1.15;
+  color:var(--text-soft);
+}
+.footer .left{ text-align:left; }
+.footer .center{ text-align:center; }
+.footer .right{ text-align:right; }
+
+/* ===== PÁGINAS VACÍAS ===== */
+.blankPage{
+  padding:24px 18px;
+  font-size:32px;
+  color:var(--text-main);
+}
+
+/* ===== MENÚ OVERLAY (no debe verse nunca cerrado) ===== */
+.menuOverlay{
+  position:fixed;
+  inset:0;
+  display:none;
+  background:var(--overlay);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  z-index:20;
+}
+
+.menuOverlay.show{ display:block; }
+
+.closeBtn{
+  position:absolute;
+  top:10px;
+  left:10px;
+  width:44px;
+  height:44px;
+  background:transparent;
+  border:0;
+  font-size:22px;
+  color:#fff;
+  cursor:pointer;
+}
+
+.menuNav{
+  position:absolute;
+  top:70px;
+  left:22px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* Esto evita los “botones grises” por defecto */
+.menuLink{
+  background:transparent;
+  border:0;
+  padding:0;
+  cursor:pointer;
+  font-family:"Parisienne", cursive;
+  font-size:30px;
+  color:rgba(255,255,255,.95);
+  text-align:left;
+}
+
   
   
   
