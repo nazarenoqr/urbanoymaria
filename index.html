@@ -14,90 +14,137 @@
 </head>
 <body>
 
-  <!-- TOP BAR -->
-  <header class="topbar">
-    <button id="menuBtn" class="iconBtn" aria-label="Menú">☰</button>
-    <div class="logoText">U&amp;M</div>
-    <div class="rightSpacer"></div>
-  </header>
-
-  <!-- MENÚ (solo letras blancas) -->
-  <div id="menuOverlay" class="menuOverlay" aria-hidden="true">
-    <button id="closeBtn" class="closeBtn" aria-label="Cerrar">✕</button>
-    <nav class="menuNav">
-      <button class="menuLink" data-page="inicio">Inicio</button>
-      <button class="menuLink" data-page="asistencia">Asistencia</button>
-      <button class="menuLink" data-page="ceremonia">Ceremonia</button>
-      <button class="menuLink" data-page="banquete">Banquete</button>
-      <button class="menuLink" data-page="autobus">Autobús</button>
-      <button class="menuLink" data-page="itinerario">Itinerario</button>
-      <button class="menuLink" data-page="agradecimiento">Agradecimiento</button>
-    </nav>
+  <!-- ✅ INTRO SOBRE MP4 (FIJO SÍ O SÍ) -->
+  <div id="intro" class="intro" aria-label="Sobre de invitación">
+    <video
+      id="introVideo"
+      class="introVideo"
+      src="assets/Sobre.mp4"
+      playsinline
+      preload="auto">
+    </video>
   </div>
 
-  <main class="pages">
+  <!-- APP -->
+  <div id="app" class="app" aria-hidden="true">
 
-    <!-- INICIO: TODO EN UNA PANTALLA, SIN SCROLL -->
-    <section class="page is-active is-visible" data-page="inicio">
-      <div class="invitationFit">
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <button id="menuBtn" class="iconBtn" aria-label="Menú">☰</button>
+      <div class="logoText">U&amp;M</div>
+      <div class="rightSpacer"></div>
+    </header>
 
-        <div class="fitTop">
-          <h1 class="names">Urbano y María</h1>
-          <p class="subtitle">Junto con nuestras familias</p>
+    <!-- MENÚ (solo letras blancas) -->
+    <div id="menuOverlay" class="menuOverlay" aria-hidden="true">
+      <button id="closeBtn" class="closeBtn" aria-label="Cerrar">✕</button>
+      <nav class="menuNav">
+        <button class="menuLink" data-page="inicio">Inicio</button>
+        <button class="menuLink" data-page="asistencia">Asistencia</button>
+        <button class="menuLink" data-page="ceremonia">Ceremonia</button>
+        <button class="menuLink" data-page="banquete">Banquete</button>
+        <button class="menuLink" data-page="autobus">Autobús</button>
+        <button class="menuLink" data-page="itinerario">Itinerario</button>
+        <button class="menuLink" data-page="agradecimiento">Agradecimiento</button>
+      </nav>
+    </div>
 
-          <p class="body">
-            Tenemos el placer de invitaros a nuestro enlace matrimonial que tendrá lugar (D.m)
-            <br>
-            el próximo día <span class="em">12 de septiembre de 2026</span> a las <span class="em">17:00</span> de la tarde
-            <br>
-            en la <span class="em">Parroquia San Lorenzo Mártir (Sevilla)</span>.
-          </p>
+    <main class="pages">
 
-          <p class="body">
-            A continuación, lo celebraremos todos juntos en la <span class="em">Hacienda los Parrales</span>.
-          </p>
-        </div>
+      <!-- INICIO: TODO EN UNA PANTALLA, SIN SCROLL -->
+      <section class="page is-active is-visible" data-page="inicio">
+        <div class="invitationFit">
 
-        <!-- IMAGEN EN MEDIO, AJUSTADA PARA QUE QUEPA -->
-        <div class="fitImageWrap">
-          <img class="sanlorenzoFit" src="assets/SanLorenzo.png" alt="San Lorenzo, Sevilla" />
-        </div>
+          <div class="fitTop">
+            <h1 class="names">Urbano y María</h1>
+            <p class="subtitle">Junto con nuestras familias</p>
 
-        <div class="fitBottom">
-          <p class="confirm">Se ruega Confirmación</p>
+            <p class="body">
+              Tenemos el placer de invitaros a nuestro enlace matrimonial que tendrá lugar (D.m)
+              <br>
+              el próximo día <span class="em">12 de septiembre de 2026</span> a las <span class="em">17:00</span> de la tarde
+              <br>
+              en la <span class="em">Parroquia San Lorenzo Mártir (Sevilla)</span>.
+            </p>
 
-          <div class="footer">
-            <div class="left">
-              Urbano<br>
-              668&nbsp;556&nbsp;740
-            </div>
+            <p class="body">
+              A continuación, lo celebraremos todos juntos en la <span class="em">Hacienda los Parrales</span>.
+            </p>
+          </div>
 
-            <div class="center">
-              Sevilla, 2026
-            </div>
+          <!-- IMAGEN EN MEDIO -->
+          <div class="fitImageWrap">
+            <img class="sanlorenzoFit" src="assets/SanLorenzo.png" alt="San Lorenzo, Sevilla" />
+          </div>
 
-            <div class="right">
-              María<br>
-              662&nbsp;393&nbsp;762
+          <div class="fitBottom">
+            <p class="confirm">Se ruega Confirmación</p>
+
+            <div class="footer">
+              <div class="left">
+                Urbano<br>
+                668&nbsp;556&nbsp;740
+              </div>
+
+              <div class="center">
+                Sevilla, 2026
+              </div>
+
+              <div class="right">
+                María<br>
+                662&nbsp;393&nbsp;762
+              </div>
             </div>
           </div>
+
         </div>
+      </section>
 
-      </div>
-    </section>
+      <!-- PÁGINAS NUEVAS (rellenar luego) -->
+      <section class="page" data-page="asistencia"></section>
+      <section class="page" data-page="ceremonia"></section>
+      <section class="page" data-page="banquete"></section>
+      <section class="page" data-page="autobus"></section>
+      <section class="page" data-page="itinerario"></section>
+      <section class="page" data-page="agradecimiento"></section>
 
-    <!-- PÁGINAS NUEVAS (rellenar luego) -->
-    <section class="page" data-page="asistencia"></section>
-    <section class="page" data-page="ceremonia"></section>
-    <section class="page" data-page="banquete"></section>
-    <section class="page" data-page="autobus"></section>
-    <section class="page" data-page="itinerario"></section>
-    <section class="page" data-page="agradecimiento"></section>
+    </main>
 
-  </main>
+  </div>
 
   <script>
-    // Menú overlay (simple)
+    // ✅ INTRO: el sobre aparece SIEMPRE. Reproduce al tocar. Al terminar, entra a la invitación.
+    const intro = document.getElementById("intro");
+    const introVideo = document.getElementById("introVideo");
+    const app = document.getElementById("app");
+
+    let started = false;
+
+    intro.addEventListener("click", async () => {
+      if (started) return;
+      started = true;
+
+      try {
+        introVideo.currentTime = 0;
+        await introVideo.play();
+      } catch (e) {
+        showApp();
+      }
+    });
+
+    introVideo.addEventListener("ended", () => {
+      intro.classList.add("fadeOut");
+      setTimeout(showApp, 620);
+    });
+
+    function showApp(){
+      intro.style.display = "none";
+      app.classList.add("show");
+      app.setAttribute("aria-hidden", "false");
+      window.scrollTo(0,0);
+    }
+
+    // Menú overlay
     const menuBtn = document.getElementById("menuBtn");
     const closeBtn = document.getElementById("closeBtn");
     const menuOverlay = document.getElementById("menuOverlay");
@@ -109,7 +156,6 @@
     // Navegación a páginas nuevas (sin scroll)
     const pages = Array.from(document.querySelectorAll(".page"));
     let active = "inicio";
-
     function getPage(name){ return pages.find(p => p.dataset.page === name); }
 
     function setActive(target){
