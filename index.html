@@ -16,63 +16,124 @@
 
   <!-- TOP BAR -->
   <header class="topbar">
-    <button class="iconBtn">☰</button>
+    <button id="menuBtn" class="iconBtn" aria-label="Menú">☰</button>
     <div class="logoText">U&amp;M</div>
     <div class="rightSpacer"></div>
   </header>
 
+  <!-- MENÚ (solo letras blancas) -->
+  <div id="menuOverlay" class="menuOverlay" aria-hidden="true">
+    <button id="closeBtn" class="closeBtn" aria-label="Cerrar">✕</button>
+    <nav class="menuNav">
+      <button class="menuLink" data-page="inicio">Inicio</button>
+      <button class="menuLink" data-page="asistencia">Asistencia</button>
+      <button class="menuLink" data-page="ceremonia">Ceremonia</button>
+      <button class="menuLink" data-page="banquete">Banquete</button>
+      <button class="menuLink" data-page="autobus">Autobús</button>
+      <button class="menuLink" data-page="itinerario">Itinerario</button>
+      <button class="menuLink" data-page="agradecimiento">Agradecimiento</button>
+    </nav>
+  </div>
+
   <main class="pages">
 
-    <section class="page is-active">
+    <!-- INICIO: TODO EN UNA PANTALLA, SIN SCROLL -->
+    <section class="page is-active is-visible" data-page="inicio">
+      <div class="invitationFit">
 
-      <div class="invitation">
+        <div class="fitTop">
+          <h1 class="names">Urbano y María</h1>
+          <p class="subtitle">Junto con nuestras familias</p>
 
-        <h1 class="names">Urbano y María</h1>
+          <p class="body">
+            Tenemos el placer de invitaros a nuestro enlace matrimonial que tendrá lugar (D.m)
+            <br>
+            el próximo día <span class="em">12 de septiembre de 2026</span> a las <span class="em">17:00</span> de la tarde
+            <br>
+            en la <span class="em">Parroquia San Lorenzo Mártir (Sevilla)</span>.
+          </p>
 
-        <p class="subtitle">Junto con nuestras familias</p>
+          <p class="body">
+            A continuación, lo celebraremos todos juntos en la <span class="em">Hacienda los Parrales</span>.
+          </p>
+        </div>
 
-        <p class="body">
-          Tenemos el placer de invitaros a nuestro enlace matrimonial que tendrá lugar (D.m)
-          <br><br>
-          el próximo día <strong>12 de septiembre de 2026</strong> a las <strong>17:00</strong> de la tarde
-          <br>
-          en la <strong>Parroquia San Lorenzo Mártir (Sevilla)</strong>.
-        </p>
+        <!-- IMAGEN EN MEDIO, AJUSTADA PARA QUE QUEPA -->
+        <div class="fitImageWrap">
+          <img class="sanlorenzoFit" src="assets/SanLorenzo.png" alt="San Lorenzo, Sevilla" />
+        </div>
 
-        <p class="body">
-          A continuación, lo celebraremos todos juntos en la
-          <strong>Hacienda los Parrales</strong>.
-        </p>
+        <div class="fitBottom">
+          <p class="confirm">Se ruega Confirmación</p>
 
-        <!-- IMAGEN SAN LORENZO EN MEDIO -->
-        <img
-          class="sanlorenzoImg"
-          src="assets/SanLorenzo.png"
-          alt="Parroquia San Lorenzo Mártir, Sevilla" />
+          <div class="footer">
+            <div class="left">
+              Urbano<br>
+              668&nbsp;556&nbsp;740
+            </div>
 
-        <p class="confirm">Se ruega Confirmación</p>
+            <div class="center">
+              Sevilla, 2026
+            </div>
 
-        <div class="footer">
-          <div class="left">
-            Urbano<br>
-            668&nbsp;556&nbsp;740
-          </div>
-
-          <div class="center">
-            Sevilla, 2026
-          </div>
-
-          <div class="right">
-            María<br>
-            662&nbsp;393&nbsp;762
+            <div class="right">
+              María<br>
+              662&nbsp;393&nbsp;762
+            </div>
           </div>
         </div>
 
       </div>
-
     </section>
 
+    <!-- PÁGINAS NUEVAS (rellenar luego) -->
+    <section class="page" data-page="asistencia"></section>
+    <section class="page" data-page="ceremonia"></section>
+    <section class="page" data-page="banquete"></section>
+    <section class="page" data-page="autobus"></section>
+    <section class="page" data-page="itinerario"></section>
+    <section class="page" data-page="agradecimiento"></section>
+
   </main>
+
+  <script>
+    // Menú overlay (simple)
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const menuOverlay = document.getElementById("menuOverlay");
+
+    menuBtn.addEventListener("click", () => menuOverlay.classList.add("show"));
+    closeBtn.addEventListener("click", () => menuOverlay.classList.remove("show"));
+    menuOverlay.addEventListener("click", (e) => { if (e.target === menuOverlay) menuOverlay.classList.remove("show"); });
+
+    // Navegación a páginas nuevas (sin scroll)
+    const pages = Array.from(document.querySelectorAll(".page"));
+    let active = "inicio";
+
+    function getPage(name){ return pages.find(p => p.dataset.page === name); }
+
+    function setActive(target){
+      if (!target || target === active) return;
+      const current = getPage(active);
+      const next = getPage(target);
+
+      current.classList.remove("is-visible");
+      setTimeout(() => {
+        current.classList.remove("is-active");
+        next.classList.add("is-active");
+        requestAnimationFrame(() => next.classList.add("is-visible"));
+        active = target;
+        window.scrollTo(0,0);
+      }, 220);
+    }
+
+    document.querySelectorAll(".menuLink").forEach(btn => {
+      btn.addEventListener("click", () => {
+        menuOverlay.classList.remove("show");
+        setActive(btn.dataset.page);
+      });
+    });
+  </script>
 
 </body>
 </html>
