@@ -1,128 +1,63 @@
-:root{
-    --bg:#ffffff;
-    --text:#1f1f1f;
-    --muted:#6a6a6a;
-  
-    --overlay: rgba(0,0,0,.35);
-    --parisienne: "Parisienne", cursive;
-  }
-  
-  html, body{ margin:0; padding:0; background:var(--bg); }
-  
-  /* INTRO fullscreen */
-  .intro{
-    position:fixed; inset:0; background:#000;
-    opacity:1; transition: opacity 600ms ease;
-    z-index:9999;
-  }
-  .intro.fadeOut{ opacity:0; pointer-events:none; }
-  .introVideo{ width:100vw; height:100vh; object-fit:cover; display:block; background:#000; }
-  
-  /* APP */
-  .app{ display:none; background:#fff; }
-  .app.show{ display:block; }
-  
-  /* TOPBAR */
-  .topbar{
-    position:fixed; top:0; left:0; right:0;
-    height:56px;
-    display:flex; align-items:center; gap:8px;
-    padding:0 10px;
-    background: rgba(255,255,255,.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    z-index:50;
-    border-bottom:1px solid rgba(0,0,0,.06);
-  }
-  .iconBtn{
-    width:44px; height:44px; display:grid; place-items:center;
-    border:0; background:transparent; color:#222; padding:0; cursor:pointer;
-  }
-  .iconBtn svg{ width:22px; height:22px; }
-  .logoText{ font-family: var(--parisienne); font-size:26px; color:#222; user-select:none; }
-  .rightSpacer{ margin-left:auto; width:44px; height:44px; }
-  
-  /* PÁGINAS */
-  .pages{ padding-top:56px; background:#fff; }
-  .page{
-    display:none;
-    opacity:0;
-    transform: translateY(6px);
-    transition: opacity 420ms ease, transform 420ms ease;
-    min-height: calc(100vh - 56px);
-    background:#fff;
-  }
-  .page.is-active{ display:block; }
-  .page.is-visible{ opacity:1; transform: translateY(0); }
-  
-  /* INICIO: SOLO 2 imágenes a ancho completo */
-  .inviteImg, .sanlorenzoImg{
-    width:100%;
-    height:auto;
-    display:block;
-    margin:0;
-  }
-  
-  /* Páginas interiores */
-  .pageInner{
-    max-width: 860px;
+/* INVITACIÓN TEXTO */
+.invitation{
+    max-width: 820px;
     margin: 0 auto;
-    padding: 22px 18px 34px;
+    padding: 48px 22px 36px;
+    text-align: center;
   }
-  .pageTitle{
-    margin: 0 0 12px;
-    font-family: var(--parisienne);
+  
+  .names{
+    font-family: "Parisienne", cursive;
     font-size: 42px;
     font-weight: 400;
-    color: var(--text);
-  }
-  .pageText{
-    margin:0;
-    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
-    color: var(--muted);
-    line-height: 1.55;
-    font-size: 16px;
+    margin: 0 0 8px;
+    color: #2b2b2b;
   }
   
-  /* MENÚ OVERLAY: SOLO LETRAS */
-  .menuOverlay{
-    position:fixed; inset:0;
-    display:none;
-    background: var(--overlay);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    z-index:60;
+  .subtitle{
+    font-family: "Parisienne", cursive;
+    font-size: 22px;
+    margin: 0 0 28px;
+    color: #555;
   }
-  .menuOverlay.show{ display:block; }
   
-  .closeBtn{
-    position:absolute;
-    top:10px; left:10px;
-    width:44px; height:44px;
-    display:grid; place-items:center;
-    border:0; background:transparent; color:#fff; cursor:pointer; padding:0;
+  .body{
+    font-family: "Parisienne", cursive;
+    font-size: 22px;
+    line-height: 1.6;
+    margin: 0 0 22px;
+    color: #3a3a3a;
   }
-  .closeBtn svg{ width:22px; height:22px; }
   
-  .menuNav{
-    position:absolute;
-    top:70px;
-    left:22px;
-    display:flex;
-    flex-direction:column;
-    gap: 14px;
+  .confirm{
+    font-family: "Parisienne", cursive;
+    font-size: 22px;
+    margin: 26px 0 36px;
+    color: #3a3a3a;
   }
-  .menuLink{
-    border:0;
-    background:transparent;
-    padding:0;
-    cursor:pointer;
   
-    color: rgba(255,255,255,.95);
-    font-family: var(--parisienne);
-    font-size: 30px;
-    text-align:left;
+  .footer{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    font-family: "Parisienne", cursive;
+    font-size: 20px;
+    color: #3a3a3a;
+    margin-bottom: 20px;
   }
+  
+  .footer .left{ text-align: left; }
+  .footer .center{ text-align: center; }
+  .footer .right{ text-align: right; }
+  
+  /* IMAGEN SAN LORENZO */
+  .sanlorenzoImg{
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+  }
+  
   
   
   
