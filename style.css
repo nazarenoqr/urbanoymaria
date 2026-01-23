@@ -447,3 +447,37 @@ body{
   text-decoration: none;
   color: rgba(0,0,0,0.7);
 }
+
+/* ===== AUTOBÚS / OTROS: centrado como el resto ===== */
+.busWrap{
+  max-width: 520px;      /* mismo concepto que tus páginas */
+  margin: 0 auto;
+  padding: 0 14px;
+}
+
+/* Si tu lista de "Otros" son filas con 2 columnas (izq/der) */
+.otrosRow{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap: 14px;
+  align-items:center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.10);
+}
+
+.otrosRow:last-child{ border-bottom: none; }
+
+.otrosLeft{ text-align:left; }
+.otrosRight{ text-align:right; }
+
+/* links “Abrir app” y teléfono */
+.otrosLink{
+  text-decoration:none;
+  color: rgba(0,0,0,.65);
+  padding: 8px 10px;     /* zona táctil */
+  border-radius: 10px;
+}
+
+.otrosLink:active{
+  background: rgba(0,0,0,.06);
+}
