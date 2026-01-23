@@ -607,3 +607,7 @@ body{
   /* fuerza sensación horizontal */
   transform: rotate(0deg);
 }
+
+.invImage{ cursor: pointer; }
+.invFull{ touch-action: manipulation; }
+.invFullImg{ -webkit-user-select: none; user-select: none; }

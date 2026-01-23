@@ -90,18 +90,32 @@ replayBtn.addEventListener("click", () => {
   showIntro();
 });
 
-  // ===== INVITACIÓN FULLSCREEN =====
+  // ✅ INVITACIÓN FULLSCREEN (MÓVIL + PC)
   const openInv = document.getElementById("openInvFull");
   const invFull = document.getElementById("invFull");
 
-  if (openInv && invFull) {
-    openInv.addEventListener("click", () => {
-      invFull.classList.add("show");
-      invFull.setAttribute("aria-hidden", "false");
-    });
+  function openFull(e){
+    e.preventDefault();
+    e.stopPropagation();
+    invFull.classList.add("show");
+    invFull.setAttribute("aria-hidden", "false");
+  }
 
-    invFull.addEventListener("click", () => {
-      invFull.classList.remove("show");
-      invFull.setAttribute("aria-hidden", "true");
-    });
+  function closeFull(e){
+    e.preventDefault();
+    e.stopPropagation();
+    invFull.classList.remove("show");
+    invFull.setAttribute("aria-hidden", "true");
+  }
+
+  if (openInv && invFull) {
+    // PC + Android
+    openInv.addEventListener("click", openFull);
+
+    // iPhone / iPad (Safari)
+    openInv.addEventListener("touchstart", openFull, { passive: false });
+
+    // Cerrar (tap/click en la imagen fullscreen)
+    invFull.addEventListener("click", closeFull);
+    invFull.addEventListener("touchstart", closeFull, { passive: false });
   }
