@@ -53,11 +53,23 @@
       <section class="page is-active is-visible" data-page="inicio">
         <div class="homeFit">
           <div class="invImageWrap">
-            <!-- ✅ ÚNICO CAMBIO AQUÍ: id="openInvFull" -->
-            <img id="openInvFull" class="invImage" src="assets/Invitacion.png" alt="Invitación" />
+      
+            <img
+              class="invImage"
+              src="assets/Invitacion.png"
+              alt="Invitación"
+              id="openInvFull"
+            />
+      
+            <!-- HINT SOLO EN LA PORTADA -->
+            <div class="invHintHome" aria-hidden="true">
+              Toca para ampliar la invitación
+            </div>
+      
           </div>
         </div>
       </section>
+      
 
       <!-- ASISTENCIA (FORM EMBEBIDO) -->
       <section class="page" data-page="asistencia">

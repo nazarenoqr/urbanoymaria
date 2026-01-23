@@ -119,3 +119,6 @@ replayBtn.addEventListener("click", () => {
     invFull.addEventListener("click", closeFull);
     invFull.addEventListener("touchstart", closeFull, { passive: false });
   }
+
+
+  
