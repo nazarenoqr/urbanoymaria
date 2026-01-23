@@ -90,6 +90,22 @@ replayBtn.addEventListener("click", () => {
   showIntro();
 });
 
+document.addEventListener("click", function(e){
+  const btn = e.target.closest(".ibanBtn");
+  if(!btn) return;
+
+  const iban = btn.dataset.iban;
+  navigator.clipboard.writeText(iban).then(() => {
+    btn.classList.add("copied");
+    btn.querySelector(".ibanHint").textContent = "Copiado ✓";
+
+    setTimeout(() => {
+      btn.classList.remove("copied");
+      btn.querySelector(".ibanHint").textContent = "Copiar";
+    }, 2000);
+  });
+});
+
 
 
 
