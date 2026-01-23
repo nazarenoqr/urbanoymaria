@@ -423,3 +423,27 @@ body{
 .busLink:active{
   opacity:.55;
 }
+
+.busList{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.busList li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;              /* 👈 aire vertical */
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.busList li:last-child{
+  border-bottom: none;
+}
+
+.busLink{
+  padding: 8px 12px;            /* 👈 zona cómoda para el dedo */
+  text-decoration: none;
+  color: rgba(0,0,0,0.7);
+}
