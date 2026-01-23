@@ -147,7 +147,6 @@ body{
 
 /* =========================
    ASISTENCIA (FORM)
-   - El body no hace scroll, pero el iframe puede “mover” dentro.
 ========================= */
 .formWrap{
   height:100%;
@@ -161,8 +160,6 @@ body{
 
 /* =========================
    CEREMONIA / BANQUETE
-   - “vertical”: ocupa alto completo con layout tipo tarjeta
-   - imagen con opacidad 70%
 ========================= */
 .placePage{
   height:100%;
@@ -189,7 +186,7 @@ body{
 .placeImg{
   width:100%;
   height:100%;
-  object-fit:cover;     /* llena la pantalla (sin blanco) */
+  object-fit:cover;     /* llena la pantalla */
   opacity:.7;           /* 70% */
   display:block;
 }
@@ -287,9 +284,8 @@ body{
 }
 
 /* =========================
-   AUTOBÚS (ESTILO INVITACIÓN)
+   AUTOBÚS
 ========================= */
-
 .busPage{
   height:100%;
   max-width:520px;
@@ -384,78 +380,13 @@ body{
   color:rgba(0,0,0,.5);
 }
 
-.busList{
-  list-style:disc;
-  padding-left:18px;
-  margin:0 auto;
-  width:min(360px, 92%);
-  text-align:left;
-  color:rgba(0,0,0,.55);
-  line-height:1.4;
-  font-size:clamp(14px, 3.3vw, 18px);
-}
-
-.busList li{
-  display:flex;
-  align-items:baseline;
-  justify-content:space-between;
-  gap:10px;
-}
-
-.busList b{
-  font-weight:400;
-  color:rgba(0,0,0,.65);
-  white-space:nowrap;
-}
-
-/* =========================
-   LINKS INTERACTIVOS AUTOBÚS
-========================= */
-
-.busLink{
-  text-decoration:none;
-  font-weight:400;
-  color:rgba(0,0,0,.65);
-  white-space:nowrap;
-  transition:opacity .2s ease;
-}
-
-.busLink:active{
-  opacity:.55;
-}
-
-.busList{
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.busList li{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;              /* 👈 aire vertical */
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-}
-
-.busList li:last-child{
-  border-bottom: none;
-}
-
-.busLink{
-  padding: 8px 12px;            /* 👈 zona cómoda para el dedo */
-  text-decoration: none;
-  color: rgba(0,0,0,0.7);
-}
-
-/* ===== AUTOBÚS / OTROS: centrado como el resto ===== */
+/* Otros */
 .busWrap{
-  max-width: 520px;      /* mismo concepto que tus páginas */
+  max-width: 520px;
   margin: 0 auto;
   padding: 0 14px;
 }
 
-/* Si tu lista de "Otros" son filas con 2 columnas (izq/der) */
 .otrosRow{
   display:grid;
   grid-template-columns: 1fr auto;
@@ -464,366 +395,186 @@ body{
   padding: 12px 0;
   border-bottom: 1px solid rgba(0,0,0,0.10);
 }
-
 .otrosRow:last-child{ border-bottom: none; }
 
 .otrosLeft{ text-align:left; }
 .otrosRight{ text-align:right; }
 
-/* links “Abrir app” y teléfono */
 .otrosLink{
   text-decoration:none;
   color: rgba(0,0,0,.65);
-  padding: 8px 10px;     /* zona táctil */
+  padding: 8px 10px;
   border-radius: 10px;
 }
-
 .otrosLink:active{
   background: rgba(0,0,0,.06);
 }
 
-/* ===== ITINERARIO (timeline vertical “vivo”) ===== */
-.itWrap{
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 18px 18px 28px;
-  text-align: center;
-}
-
-.itTitle{
-  font-size: clamp(34px, 7vw, 52px);
-  color: rgba(0,0,0,.70);
-  font-weight: 400;
-  margin-top: 6px;
-  margin-bottom: 6px;
-}
-
-.itDivider{
-  font-size: 26px;
-  line-height: 1;
-  margin: 6px 0 16px;
-  color: rgba(0,0,0,.22);
-}
-
-.timeline{
-  position: relative;
-  margin: 0 auto;
-  padding: 10px 0 0;
-}
-
-/* línea vertical */
-.timeline::before{
-  content:"";
-  position:absolute;
-  left: 50%;
-  top: 6px;
-  bottom: 6px;
-  width: 2px;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,.15);
-  border-radius: 999px;
-}
-
-/* item */
-.tlItem{
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr; /* izq icon / centro / der texto */
-  align-items: center;
-  padding: 14px 0;
-}
-
-/* punto en la línea */
-.tlDot{
-  position:absolute;
-  left: 50%;
-  width: 10px;
-  height: 10px;
-  transform: translate(-50%, 0);
-  background: rgba(0,0,0,.35);
-  border-radius: 999px;
-  box-shadow: 0 0 0 6px rgba(0,0,0,.06);
-}
-
-/* icono a la izquierda */
-.tlIcon{
-  justify-self: end;
-  margin-right: 18px;
-  width: 44px;
-  height: 44px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius: 999px;
-  background: rgba(0,0,0,.03);
-  font-size: 22px;
-}
-
-/* contenido a la derecha */
-.tlContent{
-  justify-self: start;
-  margin-left: 18px;
-  text-align: left;
-}
-
-.tlTime{
-  font-size: 20px;
-  color: rgba(0,0,0,.55);
-  line-height: 1.1;
-}
-
-.tlText{
-  font-size: 26px;
-  color: rgba(0,0,0,.72);
-  line-height: 1.1;
-  margin-top: 2px;
-}
-
-/* micro-animación “vivo” */
-.tlItem{
-  opacity: 0;
-  transform: translateY(8px);
-  animation: tlIn 520ms ease forwards;
-}
-
-.tlItem:nth-child(1){ animation-delay: 60ms; }
-.tlItem:nth-child(2){ animation-delay: 120ms; }
-.tlItem:nth-child(3){ animation-delay: 180ms; }
-.tlItem:nth-child(4){ animation-delay: 240ms; }
-.tlItem:nth-child(5){ animation-delay: 300ms; }
-.tlItem:nth-child(6){ animation-delay: 360ms; }
-
-@keyframes tlIn{
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* móvil: que no quede apretado */
-@media (max-width: 380px){
-  .tlTime{ font-size: 18px; }
-  .tlText{ font-size: 24px; }
-  .tlIcon{ width: 40px; height: 40px; font-size: 20px; }
-}
-
-/* ===== AGRADECIMIENTO ===== */
-
-.thanksWrap{
-  height:100%;
-  max-width:520px;
-  margin:0 auto;
-  padding:24px 22px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  text-align:center;
-  gap:22px;
-}
-
-.thanksText{
-  font-size: clamp(22px, 5.5vw, 32px);
-  line-height:1.35;
-  color: rgba(0,0,0,.70);
-  font-family: "Parisienne", cursive;
-}
-
-.thanksIban{
-  margin-top:10px;
-  font-size: clamp(16px, 4vw, 20px);
-  letter-spacing: 1.5px;
-  color: rgba(0,0,0,.65);
-  font-family: "Cormorant Garamond", serif;
-}
-
-/* ===== AGRADECIMIENTO – AJUSTE FINAL ===== */
-
-.thanksWrap{
-  height:100%;
-  max-width:520px;
-  margin:0 auto;
-  padding:16px 22px;          /* 👈 menos aire arriba */
-  display:flex;
-  flex-direction:column;
-  justify-content:center;     /* centrado real */
-  gap:18px;                   /* menos separación */
-  text-align:center;
-}
-
-.thanksText{
-  font-size: clamp(22px, 5.4vw, 30px);
-  line-height:1.3;
-  color: rgba(0,0,0,.70);
-  font-family:"Parisienne", cursive;
-}
-
-/* botón IBAN */
-.ibanBtn{
-  margin-top:6px;
-  align-self:center;
-  background: transparent;
-  border: 1px solid rgba(0,0,0,.25);
-  border-radius: 14px;
-  padding: 12px 18px;
-  cursor: pointer;
-
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(16px, 4vw, 20px);
-  letter-spacing: 1.2px;
-  color: rgba(0,0,0,.70);
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:6px;
-}
-
-.ibanBtn:active{
-  background: rgba(0,0,0,.06);
-}
-
-/* texto pequeño “Copiar” */
-.ibanHint{
-  font-size: 14px;
-  letter-spacing: .5px;
-  color: rgba(0,0,0,.45);
-}
-
-/* feedback al copiar */
-.ibanBtn.copied{
-  border-color: rgba(0,0,0,.45);
-}
-.ibanBtn.copied .ibanHint{
-  content:"Copiado";
-  color: rgba(0,0,0,.65);
-}
-
-/* ===== AGRADECIMIENTO (TEXTO LIMPIO) ===== */
-
-.thanksWrap{
-  height:100%;
-  max-width:520px;
-  margin:0 auto;
-  padding:18px 22px;          /* 👈 menos aire arriba */
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:18px;                   /* 👈 texto más compacto */
-  text-align:center;
-}
-
-.thanksText{
-  font-size: clamp(22px, 5.4vw, 30px);
-  line-height:1.32;
-  color: rgba(0,0,0,.70);
-  font-family:"Parisienne", cursive;
-}
-
-.thanksIban{
-  margin-top:6px;
-  font-size: clamp(16px, 4vw, 20px);
-  letter-spacing: 1.4px;
-  color: rgba(0,0,0,.60);
-  font-family: "Cormorant Garamond", serif;
-}
-
 /* =========================
-   ITINERARIO (VERSIÓN FINAL)
-   - centrado
-   - iconos sin círculos
-   - sin puntos
+   ITINERARIO (ICONOS PNG)
+   - centrado real
    - línea fina
+   - iconos a la izquierda (sin círculo)
 ========================= */
 
-.itWrap{
+.page[data-page="itinerario"] .itWrap{
   max-width: 520px;
   margin: 0 auto;
   padding: 22px 18px 30px;
   text-align: center;
 }
 
-.itTitle{
+.page[data-page="itinerario"] .itTitle{
   font-size: clamp(34px, 7vw, 54px);
   color: rgba(0,0,0,.65);
   font-weight: 400;
   margin: 6px 0 4px;
 }
 
-.itDivider{
+.page[data-page="itinerario"] .itDivider{
   font-size: 28px;
   line-height: 1;
   margin: 6px 0 18px;
   color: rgba(0,0,0,.22);
 }
 
-/* bloque centrado */
-.timeline{
+.page[data-page="itinerario"] .timeline{
   width: min(360px, 92vw);
   margin: 0 auto;
   position: relative;
   padding: 8px 0;
+  transform: translateX(105px);
 }
 
-/* línea vertical */
-.timeline::before{
+/* Línea vertical (pegada a iconos) */
+.page[data-page="itinerario"] .timeline::before{
   content:"";
   position:absolute;
   top: 0;
   bottom: 0;
-  left: calc(56px + 11px);   /* icono (56) + mitad columna línea (22/2) */
+  left: 72px;              /* controla dónde cae la línea */
   width: 2px;
   background: rgba(0,0,0,.18);
   border-radius: 999px;
 }
 
-/* filas */
-.tlItem{
+/* Fila: icono + texto */
+.page[data-page="itinerario"] .tlItem{
   display: grid;
-  grid-template-columns: 56px 22px 1fr; /* icono | línea | texto */
+  grid-template-columns: 72px 1fr;  /* igual que el left de la línea */
   align-items: center;
+  gap: 26px;                        /* antes 18px -> más aire */
   padding: 14px 0;
 }
 
-/* iconos: sin círculo */
-.tlIcon{
-  grid-column: 1;
-  justify-self: end;         /* pegado a la línea */
-  width: 32px;
-  height: 32px;
+/* Icono (contenedor) */
+.page[data-page="itinerario"] .tlIcon{
+  width: 44px;
+  height: 44px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background: transparent;
-  border-radius: 0;
-  font-size: 22px;
-  opacity: .55;
+  justify-self: end;
 }
 
-/* ocultamos puntos (para que NO salgan como en tu captura) */
-.tlDot{ display:none !important; }
+/* PNG */
+.page[data-page="itinerario"] .tlIcon img{
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  opacity: .75;
+  display:block;
+}
 
-/* texto */
-.tlContent{
-  grid-column: 3;
+/* Texto */
+.page[data-page="itinerario"] .tlContent{
   text-align: left;
 }
 
-.tlTime{
+.page[data-page="itinerario"] .tlTime{
   font-size: 22px;
   color: rgba(0,0,0,.55);
   line-height: 1.05;
+  white-space: nowrap;   /* clave: evita que "h" baje */
 }
 
-.tlText{
+.page[data-page="itinerario"] .tlText{
   font-size: 26px;
   color: rgba(0,0,0,.70);
   line-height: 1.05;
   margin-top: 3px;
 }
 
+/* Dar aire entre iconos e línea */
+.page[data-page="itinerario"] .tlIcon{
+  margin-right: 14px;   /* 👈 separa icono de la línea */
+}
+
 /* móvil */
 @media (max-width: 380px){
-  .timeline{ width: min(330px, 92vw); }
-  .tlItem{ grid-template-columns: 52px 20px 1fr; }
-  .timeline::before{ left: calc(52px + 10px); }
-  .tlIcon{ font-size: 21px; opacity: .55; }
-  .tlTime{ font-size: 20px; }
-  .tlText{ font-size: 24px; }
+  .page[data-page="itinerario"] .timeline{
+    width: min(330px, 92vw);
+  }
+  .page[data-page="itinerario"] .timeline::before{
+    left: 58px;
+  }
+  .page[data-page="itinerario"] .tlItem{
+    grid-template-columns: 58px 1fr;
+    gap: 16px;
+  }
+  .page[data-page="itinerario"] .tlIcon{
+    width: 40px;
+    height: 40px;
+  }
+  .page[data-page="itinerario"] .tlIcon img{
+    width: 36px;
+    height: 36px;
+  }
+  .page[data-page="itinerario"] .tlTime{ font-size: 20px; }
+  .page[data-page="itinerario"] .tlText{ font-size: 24px; }
+}
+
+
+@media (max-width: 380px){
+  .page[data-page="itinerario"] .timeline{
+    width: min(330px, 92vw);
+  }
+  .page[data-page="itinerario"] .timeline::before{
+    left: 68px;
+  }
+  .page[data-page="itinerario"] .tlItem{
+    grid-template-columns: 68px 1fr;
+    gap: 22px;
+  }
+  .page[data-page="itinerario"] .tlTime{ white-space: nowrap; }
+}
+
+/* =========================
+   AGRADECIMIENTO (FINAL)
+========================= */
+.page[data-page="agradecimiento"] .thanksWrap{
+  height:100%;
+  max-width:520px;
+  margin:0 auto;
+  padding:18px 22px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:18px;
+  text-align:center;
+}
+
+.page[data-page="agradecimiento"] .thanksText{
+  font-size: clamp(22px, 5.4vw, 30px);
+  line-height:1.32;
+  color: rgba(0,0,0,.70);
+  font-family:"Parisienne", cursive;
+}
+
+.page[data-page="agradecimiento"] .thanksIban{
+  margin-top:6px;
+  font-size: clamp(16px, 4vw, 20px);
+  letter-spacing: 1.4px;
+  color: rgba(0,0,0,.60);
+  font-family: "Cormorant Garamond", serif;
 }

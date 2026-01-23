@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 
 <body>
@@ -18,7 +18,6 @@
   <!-- INTRO: SOBRE -->
   <div id="intro" class="intro" aria-label="Sobre de invitación">
     <video id="introVideo" class="introVideo" src="assets/Sobre.mp4" playsinline preload="auto"></video>
-    <div class="introHint">Toca para abrir</div>
   </div>
 
   <!-- APP -->
@@ -120,23 +119,23 @@
         </div>
       </section>
 
-      <!-- RESTO (vacías por ahora) -->
+      <!-- AUTOBÚS -->
       <section class="page" data-page="autobus">
         <div class="busPage">
-      
+
           <div class="busBlock">
             <h2 class="busTitle">Parroquia San Lorenzo<br>Mártir</h2>
-      
+
             <div class="busCard">
               <div class="busCardTitle">Parada: Torneo</div>
               <div class="busCardSub">(Salesianas San Vicente)</div>
               <div class="busCardTime">19:00h</div>
             </div>
           </div>
- 
+
           <div class="busBlock">
             <h2 class="busTitle">Hacienda Los Parrales</h2>
-      
+
             <a
               class="busMapLink"
               href="https://maps.app.goo.gl/1y66pSW94DeNK1ky6"
@@ -148,140 +147,149 @@
               <div class="busMapHint">(Clic)</div>
             </a>
           </div>
-      
+
           <div class="busDivider">
             <span></span><i>∞</i><span></span>
           </div>
-      
+
           <div class="busBlock">
             <h2 class="busTitle">Hacienda Los Parrales</h2>
-      
+
             <div class="busCard">
               <div class="busCardTime">05:00</div>
             </div>
-      
+
             <div class="busCity">Gines - Sevilla</div>
           </div>
-      
+
           <div class="busDivider">
             <span></span><i>∞</i><span></span>
           </div>
-      
+
           <div class="busBlock">
             <div class="busWrap">
               <h2 class="placeTitle">Otros</h2>
-            
+
               <div class="otrosRow">
                 <div class="otrosLeft">Taxi Sanlucar</div>
                 <div class="otrosRight">
                   <a class="otrosLink" href="tel:654110110">654 110 110</a>
                 </div>
               </div>
-            
+
               <div class="otrosRow">
                 <div class="otrosLeft">Uber</div>
                 <div class="otrosRight">
                   <a class="otrosLink" href="https://m.uber.com/" target="_blank" rel="noopener">Abrir app</a>
                 </div>
               </div>
-            
+
               <div class="otrosRow">
                 <div class="otrosLeft">Cabify</div>
                 <div class="otrosRight">
                   <a class="otrosLink" href="https://m.cabify.com/" target="_blank" rel="noopener">Abrir app</a>
                 </div>
               </div>
+
             </div>
-            
-      
-        </div>
-      </section>
-      
-      <section class="page" data-page="itinerario">
-        <div class="itWrap">
-      
-          <h2 class="itTitle">Itinerario</h2>
-          <div class="itDivider" aria-hidden="true">∞</div>
-      
-          <div class="timeline" aria-label="Itinerario de la boda">
-      
-            <div class="tlItem">
-              <div class="tlIcon" aria-hidden="true">⛪️</div>
-              <div class="tlDot" aria-hidden="true"></div>
-              <div class="tlContent">
-                <div class="tlTime">17:00 h</div>
-                <div class="tlText">Ceremonia</div>
-              </div>
-            </div>
-      
-            <div class="tlItem">
-              <div class="tlIcon" aria-hidden="true">🚌</div>
-              <div class="tlDot" aria-hidden="true"></div>
-              <div class="tlContent">
-                <div class="tlTime">19:00 h</div>
-                <div class="tlText">Recogida</div>
-              </div>
-            </div>
-      
-            <div class="tlItem">
-              <div class="tlIcon" aria-hidden="true">🥂</div>
-              <div class="tlDot" aria-hidden="true"></div>
-              <div class="tlContent">
-                <div class="tlTime">20:00 h</div>
-                <div class="tlText">Recepción</div>
-              </div>
-            </div>
-      
-            <div class="tlItem">
-              <div class="tlIcon" aria-hidden="true">🍽️</div>
-              <div class="tlDot" aria-hidden="true"></div>
-              <div class="tlContent">
-                <div class="tlTime">22:00 h</div>
-                <div class="tlText">Cena</div>
-              </div>
-            </div>
-      
-            <div class="tlItem">
-              <div class="tlIcon" aria-hidden="true">🎶</div>
-              <div class="tlDot" aria-hidden="true"></div>
-              <div class="tlContent">
-                <div class="tlTime">23:30 h</div>
-                <div class="tlText">Baile</div>
-              </div>
-            </div>
-      
-            <div class="tlItem">
-              <div class="tlIcon" aria-hidden="true">🎆</div>
-              <div class="tlDot" aria-hidden="true"></div>
-              <div class="tlContent">
-                <div class="tlTime">04:30 h</div>
-                <div class="tlText">Fin de fiesta</div>
-              </div>
-            </div>
-      
           </div>
+
         </div>
       </section>
-      
-      
+
+      <!-- ITINERARIO -->
+<!-- ITINERARIO -->
+<section class="page" data-page="itinerario">
+  <div class="itWrap">
+
+    <h2 class="itTitle">Itinerario</h2>
+    <div class="itDivider" aria-hidden="true">∞</div>
+
+    <div class="timeline" aria-label="Itinerario de la boda">
+
+      <div class="tlItem">
+        <div class="tlIcon" aria-hidden="true">
+          <img src="assets/ItinerarioIglesia.png" alt="">
+        </div>
+        <div class="tlContent">
+          <div class="tlTime">17:00 h</div>
+          <div class="tlText">Ceremonia</div>
+        </div>
+      </div>
+
+      <div class="tlItem">
+        <div class="tlIcon" aria-hidden="true">
+          <img src="assets/ItinerarioBus.png" alt="">
+        </div>
+        <div class="tlContent">
+          <div class="tlTime">19:00 h</div>
+          <div class="tlText">Recogida</div>
+        </div>
+      </div>
+
+      <div class="tlItem">
+        <div class="tlIcon" aria-hidden="true">
+          <img src="assets/ItinerarioRecepcion.png" alt="">
+        </div>
+        <div class="tlContent">
+          <div class="tlTime">20:00 h</div>
+          <div class="tlText">Recepción</div>
+        </div>
+      </div>
+
+      <div class="tlItem">
+        <div class="tlIcon" aria-hidden="true">
+          <img src="assets/ItinerarioCena.png" alt="">
+        </div>
+        <div class="tlContent">
+          <div class="tlTime">22:00 h</div>
+          <div class="tlText">Cena</div>
+        </div>
+      </div>
+
+      <div class="tlItem">
+        <div class="tlIcon" aria-hidden="true">
+          <img src="assets/ItinerarioMusica.png" alt="">
+        </div>
+        <div class="tlContent">
+          <div class="tlTime">23:30 h</div>
+          <div class="tlText">Baile</div>
+        </div>
+      </div>
+
+      <div class="tlItem">
+        <div class="tlIcon" aria-hidden="true">
+          <img src="assets/ItinerarioFinFiesta.png" alt="">
+        </div>
+        <div class="tlContent">
+          <div class="tlTime">04:30 h</div>
+          <div class="tlText">Fin de fiesta</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      <!-- AGRADECIMIENTO -->
       <section class="page" data-page="agradecimiento">
         <div class="thanksWrap">
-      
+
           <p class="thanksText">
             ¡Para nosotros lo más importante es tu presencia!
           </p>
-      
+
           <p class="thanksText">
             Pero si deseas tener un detalle con nosotros, puedes hacerlo en la siguiente cuenta bancaria
           </p>
-      
+
           <p class="thanksIban">
             ESXX XXXX XXXX XXXX XXXX XXXX
           </p>
-      
+
         </div>
       </section>
-      
 
     </main>
   </div>
@@ -380,4 +388,3 @@
 
 </body>
 </html>
-
