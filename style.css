@@ -667,17 +667,13 @@ body{
   border-radius: 999px;
 
   font-family: "Parisienne", cursive;
-  font-size: 18px;
+  font-size: 14px;
   color: rgba(0,0,0,.55);
-
-  background: rgba(255,255,255,.65);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
 
   opacity: 0;
   pointer-events: none;
 
-  animation: invHomeHint 5s ease forwards;
+  animation: invHomeHint 4s ease forwards;
 }
 
 @keyframes invHomeHint{
