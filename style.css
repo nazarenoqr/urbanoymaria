@@ -494,3 +494,43 @@ body{
   font-size: 16px;
   color: rgba(0,0,0,.45);
 }
+
+/* =========================
+   BOTÓN SORPRESA (ICONO IMAGEN)
+========================= */
+.giftBtn{
+  margin-left:auto;
+  background:transparent;
+  border:0;
+  padding: 6px 8px;
+  cursor:pointer;
+  opacity:.85;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+.giftBtn:hover{ opacity:1; }
+
+.giftIcon{
+  width: 26px;      /* ajusta aquí si lo quieres más grande */
+  height: 26px;
+  display:block;
+  object-fit: contain;
+
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* para que ↻ quede a la derecha */
+.replayBtn{
+  margin-left: 6px;
+}
+
