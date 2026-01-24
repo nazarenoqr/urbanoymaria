@@ -750,3 +750,34 @@ body{
 .page[data-page="itinerario"] .invImage{
   transform: scale(1.08); /* ligero zoom elegante */
 }
+
+/* =========================
+   INVITACIÓN HORIZONTAL – FULL WIDTH
+========================= */
+
+#invFull{
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+}
+
+/* imagen horizontal */
+#invFullImg{
+  width: 100vw;        /* 👈 ocupa TODO el ancho */
+  height: auto;
+  max-height: 100vh;  /* no se sale en vertical */
+
+  object-fit: contain;
+  display: block;
+
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
