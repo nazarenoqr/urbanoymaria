@@ -697,5 +697,30 @@ body{
   }
 }
 
+/* =========================
+   QUITAR AZUL (tap highlight) EN MÓVIL
+   - iOS/Safari principalmente
+========================= */
 
+/* El IMG que abre la invitación */
+#openInvFull{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: manipulation;
+}
+
+/* Por si el highlight cae en el contenedor */
+.invImageWrap,
+.homeFit{
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+/* Evita “focus ring” raro en algunos navegadores */
+#openInvFull:focus{
+  outline: none;
+}
 
